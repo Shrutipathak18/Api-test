@@ -1,0 +1,354 @@
+# Keploy Configuration for Shruti API Server
+apiVersion: v1
+kind: Keploy
+metadata:
+  name: shruti-api-tests
+  description: "API testing configuration for Shruti API Server"
+
+spec:
+  # API Server Configuration
+  server:
+    url: "http://localhost:5000"
+    timeout: 30s
+    retries: 3
+    
+  # Test Configuration
+  tests:
+    # Test suite configuration
+    suite:
+      name: "shruti-api-suite"
+      description: "Comprehensive API tests for Shruti API Server"
+      
+    # Test scenarios
+    scenarios:
+      - name: "health-check"
+        description: "Test health check endpoint"
+        request:
+          method: "GET"
+          path: "/api/health"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            status: "OK"
+            database: "Connected"
+            
+      - name: "get-all-users"
+        description: "Test getting all users"
+        request:
+          method: "GET"
+          path: "/api/users"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            type: "array"
+            
+      - name: "create-user"
+        description: "Test creating a new user"
+        request:
+          method: "POST"
+          path: "/api/users"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Test User"
+            email: "test@example.com"
+        expected:
+          status: 201
+          body:
+            name: "Test User"
+            email: "test@example.com"
+            
+      - name: "get-user-by-id"
+        description: "Test getting user by ID"
+        request:
+          method: "GET"
+          path: "/api/users/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            id: 1
+            
+      - name: "update-user"
+        description: "Test updating user"
+        request:
+          method: "PUT"
+          path: "/api/users/1"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Updated User"
+            email: "updated@example.com"
+        expected:
+          status: 200
+          body:
+            name: "Updated User"
+            email: "updated@example.com"
+            
+      - name: "delete-user"
+        description: "Test deleting user"
+        request:
+          method: "DELETE"
+          path: "/api/users/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          
+      - name: "get-all-products"
+        description: "Test getting all products"
+        request:
+          method: "GET"
+          path: "/api/products"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            type: "array"
+            
+      - name: "create-product"
+        description: "Test creating a new product"
+        request:
+          method: "POST"
+          path: "/api/products"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Test Product"
+            price: 99.99
+        expected:
+          status: 201
+          body:
+            name: "Test Product"
+            price: 99.99
+            
+      - name: "get-product-by-id"
+        description: "Test getting product by ID"
+        request:
+          method: "GET"
+          path: "/api/products/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            id: 1
+            
+      - name: "update-product"
+        description: "Test updating product"
+        request:
+          method: "PUT"
+          path: "/api/products/1"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Updated Product"
+            price: 149.99
+        expected:
+          status: 200
+          body:
+            name: "Updated Product"
+            price: 149.99
+            
+      - name: "delete-product"
+        description: "Test deleting product"
+        request:
+          method: "DELETE"
+          path: "/api/products/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          
+      - name: "get-all-orders"
+        description: "Test getting all orders"
+        request:
+          method: "GET"
+          path: "/api/orders"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            type: "array"
+            
+      - name: "create-order"
+        description: "Test creating a new order"
+        request:
+          method: "POST"
+          path: "/api/orders"
+          headers:
+            Content-Type: "application/json"
+          body:
+            userId: 1
+            productId: 1
+            quantity: 2
+        expected:
+          status: 201
+          body:
+            userId: 1
+            productId: 1
+            quantity: 2
+            
+      - name: "get-order-by-id"
+        description: "Test getting order by ID"
+        request:
+          method: "GET"
+          path: "/api/orders/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            id: 1
+            
+      - name: "update-order"
+        description: "Test updating order"
+        request:
+          method: "PUT"
+          path: "/api/orders/1"
+          headers:
+            Content-Type: "application/json"
+          body:
+            userId: 1
+            productId: 2
+            quantity: 3
+        expected:
+          status: 200
+          body:
+            userId: 1
+            productId: 2
+            quantity: 3
+            
+      - name: "delete-order"
+        description: "Test deleting order"
+        request:
+          method: "DELETE"
+          path: "/api/orders/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          
+      - name: "get-all-categories"
+        description: "Test getting all categories"
+        request:
+          method: "GET"
+          path: "/api/categories"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            type: "array"
+            
+      - name: "create-category"
+        description: "Test creating a new category"
+        request:
+          method: "POST"
+          path: "/api/categories"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Test Category"
+        expected:
+          status: 201
+          body:
+            name: "Test Category"
+            
+      - name: "get-category-by-id"
+        description: "Test getting category by ID"
+        request:
+          method: "GET"
+          path: "/api/categories/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          body:
+            id: 1
+            
+      - name: "update-category"
+        description: "Test updating category"
+        request:
+          method: "PUT"
+          path: "/api/categories/1"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Updated Category"
+        expected:
+          status: 200
+          body:
+            name: "Updated Category"
+            
+      - name: "delete-category"
+        description: "Test deleting category"
+        request:
+          method: "DELETE"
+          path: "/api/categories/1"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 200
+          
+      - name: "error-handling-not-found"
+        description: "Test error handling for non-existent resource"
+        request:
+          method: "GET"
+          path: "/api/users/999"
+          headers:
+            Content-Type: "application/json"
+        expected:
+          status: 404
+          body:
+            error: "User not found"
+            
+      - name: "error-handling-invalid-json"
+        description: "Test error handling for invalid JSON"
+        request:
+          method: "POST"
+          path: "/api/users"
+          headers:
+            Content-Type: "application/json"
+          body:
+            name: "Invalid User"
+            email: "invalid-email"
+        expected:
+          status: 400
+          
+  # Reporting Configuration
+  reporting:
+    format: ["json", "html", "junit"]
+    output: "./test-reports"
+    include:
+      - request
+      - response
+      - timing
+      - assertions
+      
+  # Performance Configuration
+  performance:
+    concurrent: 5
+    timeout: 30s
+    retries: 3
+    
+  # Validation Configuration
+  validation:
+    strict: false
+    ignore:
+      - "timestamp"
+      - "id"
+    custom:
+      - name: "email-format"
+        pattern: "^[^@]+@[^@]+\\.[^@]+$"
+      - name: "price-positive"
+        condition: "price > 0"
+      - name: "quantity-positive"
+        condition: "quantity > 0" 

@@ -6,9 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --runInBand",
-    "test:coverage": "jest --coverage --runInBand"
+    "test:coverage": "jest --coverage --runInBand",
+    "test:api": "node test-api.js"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

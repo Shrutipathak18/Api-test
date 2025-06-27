@@ -1,0 +1,222 @@
+{
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0,
+    "successRate": 100,
+    "totalTime": 0.087
+  },
+  "tests": [
+    {
+      "name": "Health Check",
+      "status": "PASS",
+      "response": {
+        "status": "OK",
+        "message": "Shruti API Server is running!",
+        "timestamp": "2025-06-27T05:37:47.581Z",
+        "database": "Connected"
+      }
+    },
+    {
+      "name": "Get All Users",
+      "status": "PASS",
+      "response": [
+        {
+          "id": 1,
+          "name": "Updated User",
+          "email": "updated@example.com"
+        },
+        {
+          "id": 2,
+          "name": "Bob",
+          "email": "bob@example.com"
+        },
+        {
+          "id": 3,
+          "name": "Test User",
+          "email": "test@example.com"
+        }
+      ]
+    },
+    {
+      "name": "Create User",
+      "status": "PASS",
+      "response": {
+        "id": 4,
+        "name": "Test User",
+        "email": "test@example.com"
+      }
+    },
+    {
+      "name": "Get User by ID",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated User",
+        "email": "updated@example.com"
+      }
+    },
+    {
+      "name": "Update User",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated User",
+        "email": "updated@example.com"
+      }
+    },
+    {
+      "name": "Get All Products",
+      "status": "PASS",
+      "response": [
+        {
+          "id": 1,
+          "name": "Updated Product",
+          "price": 149.99
+        },
+        {
+          "id": 2,
+          "name": "Phone",
+          "price": 500
+        },
+        {
+          "id": 3,
+          "name": "Test Product",
+          "price": 99.99
+        }
+      ]
+    },
+    {
+      "name": "Create Product",
+      "status": "PASS",
+      "response": {
+        "id": 4,
+        "name": "Test Product",
+        "price": 99.99
+      }
+    },
+    {
+      "name": "Get Product by ID",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated Product",
+        "price": 149.99
+      }
+    },
+    {
+      "name": "Update Product",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated Product",
+        "price": 149.99
+      }
+    },
+    {
+      "name": "Get All Orders",
+      "status": "PASS",
+      "response": [
+        {
+          "id": 1,
+          "userId": 1,
+          "productId": 2,
+          "quantity": 3
+        },
+        {
+          "id": 2,
+          "userId": 2,
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "id": 3,
+          "userId": 1,
+          "productId": 1,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "name": "Create Order",
+      "status": "PASS",
+      "response": {
+        "id": 4,
+        "userId": 1,
+        "productId": 1,
+        "quantity": 2
+      }
+    },
+    {
+      "name": "Get Order by ID",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "userId": 1,
+        "productId": 2,
+        "quantity": 3
+      }
+    },
+    {
+      "name": "Update Order",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "userId": 1,
+        "productId": 2,
+        "quantity": 3
+      }
+    },
+    {
+      "name": "Get All Categories",
+      "status": "PASS",
+      "response": [
+        {
+          "id": 1,
+          "name": "Updated Category"
+        },
+        {
+          "id": 2,
+          "name": "Books"
+        },
+        {
+          "id": 3,
+          "name": "Test Category"
+        }
+      ]
+    },
+    {
+      "name": "Create Category",
+      "status": "PASS",
+      "response": {
+        "id": 4,
+        "name": "Test Category"
+      }
+    },
+    {
+      "name": "Get Category by ID",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated Category"
+      }
+    },
+    {
+      "name": "Update Category",
+      "status": "PASS",
+      "response": {
+        "id": 1,
+        "name": "Updated Category"
+      }
+    },
+    {
+      "name": "Error Handling (404)",
+      "status": "PASS",
+      "response": {
+        "status": 404,
+        "message": "User not found"
+      }
+    }
+  ],
+  "timestamp": "2025-06-27T05:37:47.643Z"
+}
